@@ -342,4 +342,32 @@ router.get('/grade',function(req,res){
   }
 })
 
+router.get('/findgrade',function(req,res){
+  if(req.query.item2 === "uesr"){
+    db.Grade.find({'user': req.query.item1},function(err,data){
+      if(err){
+        console.log(err)
+      }else{
+        res.send(data)
+      }
+    })
+  }else if(req.query.item2 === "name"){
+    db.Grade.find({'name': req.query.item1},function(err,data){
+      if(err){
+        console.log(err)
+      }else{
+        res.send(data)
+      }
+    })
+  }else{
+    db.Grade.find(function(err,data){
+      if(err){
+        console.log(err)
+      }else{
+        res.send(data)
+      }
+    })
+  }
+})
+
 module.exports = router
