@@ -101,27 +101,32 @@ export default {
       }
       for(let i in this.questionsII){
         let answernumber = 0
+        let answeristrue = ''
         if(this.form.questionsIIanswer[i][0]){
           answernumber++
-          if(!this.questionsII[i].answer.indexOf("A") == -1){
+          answeristrue = this.questionsII[i].answer.indexOf("A")
+          if(answeristrue == -1){
             continue
           }
         }
         if(this.form.questionsIIanswer[i][1]){
           answernumber++
-          if(!this.questionsII[i].answer.indexOf("B") == -1){
+          answeristrue = this.questionsII[i].answer.indexOf("B")
+          if(answeristrue == -1){
             continue
           }
         }
         if(this.form.questionsIIanswer[i][2]){
           answernumber++
-          if(!this.questionsII[i].answer.indexOf("C") == -1){
+          answeristrue = this.questionsII[i].answer.indexOf("C")
+          if(answeristrue == -1){
             continue
           }
         }
         if(this.form.questionsIIanswer[i][3]){
           answernumber++
-          if(!this.questionsII[i].answer.indexOf("D") == -1){
+          answeristrue = this.questionsII[i].answer.indexOf("D")
+          if(answeristrue == -1){
             continue
           }
         }
