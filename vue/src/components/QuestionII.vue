@@ -7,13 +7,13 @@
       </el-table-column>
       <el-table-column prop="question" label="题目" width="300">
       </el-table-column>
-      <el-table-column prop="A" label="A选项" width="200">
+      <el-table-column prop="A" label="A选项" width="180">
       </el-table-column>
-      <el-table-column prop="B" label="B选项" width="200">
+      <el-table-column prop="B" label="B选项" width="180">
       </el-table-column>
-      <el-table-column prop="C" label="C选项" width="200">
+      <el-table-column prop="C" label="C选项" width="180">
       </el-table-column>
-      <el-table-column prop="D" label="D选项" width="200">
+      <el-table-column prop="D" label="D选项" width="180">
       </el-table-column>
       <el-table-column prop="answer" label="答案" width="100">
       </el-table-column>

@@ -92,14 +92,14 @@ export default {
       update: {},
       rules: {
         name: [
-          { required: true, message: '请输入教师姓名', trigger: 'blur' },
+          { required: true, message: '请输入学生姓名', trigger: 'blur' },
           { max: 5, message: '姓名长度应在 5 个字符以内', trigger: 'blur' }
         ],
         sex: [
           { required: true, message: '请选择性别', trigger: 'blur' }
         ],
         user: [
-          { required: true, message: '请输入用户账号', trigger: 'blur' },
+          { required: true, message: '请输入学生学号', trigger: 'blur' },
           { max: 11, message: '用户账号长度应小于 11 个字符', trigger: 'blur' },
         ],
         password: [
@@ -188,7 +188,8 @@ export default {
         url: 'http://127.0.0.1:8888/delete',
         params: {
           collection: 'student',
-          id: row._id
+          id: row._id,
+          user: row.user
         }
       }).then(ret => {
         this.tableData.splice(0)

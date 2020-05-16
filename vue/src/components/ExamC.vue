@@ -3,7 +3,7 @@
     <div class="test">
       <h1 style="width: 100%; text-align: center;">C语言程序设计</h1><br>
       <el-form ref="form" :model="form" label-position="left">
-        <h3>一、单选题</h3>
+        <h3>一、单选题(每题5分)</h3>
         <el-form-item v-for="(item, index) in questionsI" :key="item._id" :label="(index+1)+'、'+item.question"><br>
           <el-radio-group v-model="form.questionsIanswer[index]">
             <el-radio :label="'A、'+item.A"></el-radio>
@@ -12,27 +12,27 @@
             <el-radio :label="'D、'+item.D"></el-radio>
           </el-radio-group>
         </el-form-item>
-        <h3>二、多选题</h3>
+        <h3>二、多选题（每题10分）</h3>
         <el-form-item v-for="(item, index) in questionsII" :key="item._id" :label="(index+1)+'、'+item.question"><br>
           <el-checkbox :label="'A、'+item.A" v-model="form.questionsIIanswer[index][0]"></el-checkbox>
           <el-checkbox :label="'B、'+item.B" v-model="form.questionsIIanswer[index][1]"></el-checkbox>
           <el-checkbox :label="'C、'+item.C" v-model="form.questionsIIanswer[index][2]"></el-checkbox>
           <el-checkbox :label="'D、'+item.D" v-model="form.questionsIIanswer[index][3]"></el-checkbox>
         </el-form-item>
-        <h3>三、填空题</h3>
+        <h3>三、填空题（每题10分）</h3>
         <el-form-item v-for="(item, index) in questionsIII" :key="item._id" :label="(index+1)+'、'+item.question">
           <el-input v-model="form.questionsIIIanswer[index]"></el-input>
         </el-form-item>
-        <h3>四、问答题</h3>
+        <h3>四、问答题（每题15分）</h3>
         <el-form-item v-for="(item, index) in questionsIIII" :key="item._id" :label="(index+1)+'、'+item.question">
           <el-input type="textarea" :rows="5" v-model="form.questionsIIIIanswer[index]"></el-input>
         </el-form-item>
-        <h3>五、编程题</h3>
+        <h3>五、编程题（每题20分）</h3>
         <el-form-item v-for="(item, index) in questionsIIIII" :key="item._id" :label="(index+1)+'、'+item.question">
           <el-input type="textarea" :rows="15" v-model="form.questionsIIIIIanswer[index]"></el-input>
         </el-form-item>
         <el-form-item class="primary">
-          <el-button type="primary" @click="onSubmit">提交</el-button>
+          <el-button type="primary" @click="onSubmit" :disabled=isbtn>提交</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -63,7 +63,8 @@ export default {
         questionsIIIIanswer: [],
         questionsIIIIIanswer: []
       },
-      grade: 0
+      grade: 0,
+      isbtn: false
     };
   },
   components: {},
@@ -228,7 +229,7 @@ export default {
       }).then(ret => {
         if(ret.data == 'success'){
           alert("你本次考试的成绩是"+this.grade)
-          this.$router.push('/student/grade')
+          this.isbtn = true
         }
       })
     }

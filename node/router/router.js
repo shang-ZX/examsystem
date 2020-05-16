@@ -183,6 +183,13 @@ router.get('/delete', function(req, res){
       if(err){
         console.log(err)
       }else{
+        db.Grade.deleteMany({
+          user: req.query.user
+        },function(err){
+          if(err){
+            console.log(err)
+          }
+        })
         db.Student.find(function(err, data){
           if(err){
             console.log(err)
